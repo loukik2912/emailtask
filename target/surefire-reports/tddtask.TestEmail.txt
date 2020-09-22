@@ -1,0 +1,28 @@
+-------------------------------------------------------------------------------
+Test set: tddtask.TestEmail
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 0, Errors: 6, Skipped: 1, Time elapsed: 0.153 s <<< FAILURE! - in tddtask.TestEmail
+testValidSubjectChars(tddtask.TestEmail)  Time elapsed: 0.01 s  <<< ERROR!
+java.lang.NullPointerException
+	at tddtask.TestEmail.testValidSubjectChars(TestEmail.java:46)
+
+testValidEmailID(tddtask.TestEmail)  Time elapsed: 0.015 s  <<< ERROR!
+java.lang.NullPointerException
+	at tddtask.TestEmail.testValidEmailID(TestEmail.java:32)
+
+testSendEmail(tddtask.TestEmail)  Time elapsed: 0.084 s  <<< ERROR!
+java.lang.NullPointerException
+	at tddtask.TestEmail.testSendEmail(TestEmail.java:81)
+
+testAttachment(tddtask.TestEmail)  Time elapsed: 0.014 s  <<< ERROR!
+java.lang.NullPointerException
+	at tddtask.TestEmail.testAttachment(TestEmail.java:72)
+
+testSubjectLength(tddtask.TestEmail)  Time elapsed: 0.008 s  <<< ERROR!
+java.lang.NullPointerException
+	at tddtask.TestEmail.testSubjectLength(TestEmail.java:39)
+
+testSubjectNotNull(tddtask.TestEmail)  Time elapsed: 0.01 s  <<< ERROR!
+java.lang.NullPointerException
+	at tddtask.TestEmail.testSubjectNotNull(TestEmail.java:60)
+

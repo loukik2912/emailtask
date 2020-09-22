@@ -1,5 +1,7 @@
 package tddtask;
 
+import java.util.*;
+
 public class Email
 {
     private String emailId;

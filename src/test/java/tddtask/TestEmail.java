@@ -1,5 +1,6 @@
 package tddtask;
 
+import java.util.*;
 import static org.junit.Assert.*;
 
 import org.junit.*;
@@ -28,25 +29,25 @@ public class TestEmail {
 
     @Test
     public void testValidEmailID () {
-        Email email = new Email();
+        Email email = new Email("laukpb@gmail.com", "Subjectline", null, null);
         String emailId = email.getEmailID();
         assertNotNull(emailId);
     }
 
     @Test
     public void testSubjectLength () {
-        Email email = new Email();
-        int subjectLength = email.getSubject().length();
+        Email email = new Email("laukpb@gmail.com", "Subjectline", null, null);
+        int subjectLength = email.getEmailSubject().length();
         assertTrue((subjectLength > 0) && (subjectLength <= 25));
     }
 
     @Test
     public void testValidSubjectChars () {
-        Email email = new Email();
-        String subjectLine = email.getSubject();
-        bool isValid = true;
+        Email email = new Email("laukpb@gmail.com", "Subjectline", null, null);
+        String subjectLine = email.getEmailSubject();
+        boolean isValid = true;
         for (char ch : " _/*&#".toCharArray()) {
-            if (subjectLine.contains(ch)) {
+            if (subjectLine.contains(ch+"")) {
                 isValid = false;
                 break;
             }
@@ -56,8 +57,8 @@ public class TestEmail {
 
     @Test
     public void testSubjectNotNull () {
-        Email email = new Email();
-        assertNotNull(email.getSubject());
+        Email email = new Email("laukpb@gmail.com", "Subjectline", null, null);
+        assertNotNull(email.getEmailSubject());
     }
 
     @Test
@@ -68,8 +69,8 @@ public class TestEmail {
 
     @Test
     public void testAttachment () {
-        Email email = new Email();
-        List<String> attachment = email.getEmailAttachment();
+        Email email = new Email("laukpb@gmail.com", "Subjectline", null, null);
+        List<String> attachment = email.getEmailAttachments();
         if (attachment != null) {
             assertTrue(attachment.size() < 100);
         }
@@ -77,7 +78,7 @@ public class TestEmail {
 
     @Test(timeout = 3000)
     public void testSendEmail() {
-        Email email = new Email();
+        Email email = new Email("laukpb@gmail.com", "Subjectline", null, null);
         email.sendEmail(2500);
     }
 }
