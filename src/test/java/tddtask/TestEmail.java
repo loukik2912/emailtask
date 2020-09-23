@@ -37,28 +37,28 @@ public class TestEmail {
     @Test
     public void testSubjectLength () {
         Email email = new Email("laukpb@gmail.com", "Subjectline", null, null);
-        int subjectLength = email.getEmailSubject().length();
-        assertTrue((subjectLength > 0) && (subjectLength <= 25));
+        assertNotNull(email.getEmailSubject());
+        if (email.getEmailSubject() != null) {
+            int subjectLength = email.getEmailSubject().length();
+            assertTrue((subjectLength > 0) && (subjectLength <= 25));    
+        }
     }
 
     @Test
     public void testValidSubjectChars () {
         Email email = new Email("laukpb@gmail.com", "Subjectline", null, null);
-        String subjectLine = email.getEmailSubject();
-        boolean isValid = true;
-        for (char ch : " _/*&#".toCharArray()) {
-            if (subjectLine.contains(ch+"")) {
-                isValid = false;
-                break;
-            }
-        }
-        assertTrue(isValid);
-    }
-
-    @Test
-    public void testSubjectNotNull () {
-        Email email = new Email("laukpb@gmail.com", "Subjectline", null, null);
         assertNotNull(email.getEmailSubject());
+        if (email.getEmailSubject() != null) {
+            String subjectLine = email.getEmailSubject();
+            boolean isValid = true;
+            for (char ch : " _/*&#".toCharArray()) {
+                if (subjectLine.contains(ch+"")) {
+                    isValid = false;
+                    break;
+                }
+            }
+            assertTrue(isValid);    
+        }
     }
 
     @Test
@@ -70,10 +70,9 @@ public class TestEmail {
     @Test
     public void testAttachment () {
         Email email = new Email("laukpb@gmail.com", "Subjectline", null, null);
-        List<String> attachment = email.getEmailAttachments();
-        if (attachment != null) {
-            assertTrue(attachment.size() < 100);
-        }
+        assertNotNull(email.getEmailAttachments());
+        List<Character> attachment = email.getEmailAttachments();
+        assertTrue(attachment.size() < 100);
     }
 
     @Test(timeout = 3000)

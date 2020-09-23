@@ -7,13 +7,13 @@ public class Email
     private String emailId;
     private String emailSubject;
     private String emailBody;
-    private List<String> emailAttachments;
+    private List<Character> emailAttachments;
 
-    public Email (String _emailId, String _emailSubject, String _emailBody, List<String> _emailAttachments) {
+    public Email (String _emailId, String _emailSubject, String _emailBody, List<Character> _emailAttachments) {
         this.emailId = _emailId;
         this.emailSubject = _emailSubject;
         this.emailBody = _emailBody;
-        this.emailAttachments = new ArrayList<String>(_emailAttachments);
+        this.emailAttachments = new ArrayList<Character>(_emailAttachments);
     }
 
     public String getEmailID() {
@@ -28,11 +28,12 @@ public class Email
         return emailBody;
     }
 
-    public List<String> getEmailAttachments() {
+    public List<Character> getEmailAttachments() {
         return emailAttachments;
     }
 
     public void sendEmail(int timeToSend) {
+        System.out.println("Sending email, subject: " + getEmailSubject());
         try {
             Thread.sleep(timeToSend);
          } catch (Exception e) {
